@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Konsultasi Dosen</title>
 </head>
 <body>
-    <h1>Berhasil 🎉</h1>
-    <p>Cloudflare Pages sudah aktif</p>
+
+<h1>Konsultasi Dosen</h1>
+
+<button onclick="cekApi()">Tes API</button>
+
+<div id="hasil"></div>
+
+<script>
+function cekApi(){
+  document.getElementById('hasil').innerHTML =
+  'Frontend Cloudflare berjalan';
+}
+</script>
+
 </body>
 </html>
