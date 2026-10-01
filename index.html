@@ -1,23 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Konsultasi Dosen</title>
-</head>
 <body>
 
 <h1>Konsultasi Dosen</h1>
 
-<button onclick="cekApi()">Tes API</button>
+<button onclick="tesApi()">Tes Apps Script</button>
 
 <div id="hasil"></div>
 
 <script>
-function cekApi(){
-  document.getElementById('hasil').innerHTML =
-  'Frontend Cloudflare berjalan';
+
+const API_URL =
+'https://script.google.com/macros/s/AKfycbzbULet43V-kdLb6xBrCv5iESGC0-5HYCIU-FSp0IeSbzAlk5hIdwFqI8u1viXRNjM/exec';
+
+async function tesApi(){
+
+    try{
+
+        const response = await fetch(API_URL,{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                action:'cek'
+            })
+        });
+
+        const hasil = await response.text();
+
+        document.getElementById('hasil').innerText = hasil;
+
+    }catch(err){
+
+        document.getElementById('hasil').innerText =
+        'ERROR : ' + err.message;
+
+    }
+
 }
+
 </script>
 
 </body>
-</html>
